@@ -1,0 +1,18 @@
+[Unit]
+Description=hpcontrol
+After=rc-local.service blaster.service
+
+
+[Service]
+Type=simple
+EnvironmentFile=
+WorkingDirectory=/home/pi/hpcontrol
+ExecStart=/usr/local/bin/hpcontrol.sh
+ExecReload=/bin/kill -HUP $MAINPID
+KillMode=control-group
+RestartSec=10
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+Alias=hpcontrol.service
