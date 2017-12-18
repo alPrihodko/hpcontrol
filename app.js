@@ -44,3 +44,9 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
+
+var Dbx = require('./libs/dropbox');
+
+//import Dbx from 'libs/dropbox.js';
+var bx = new Dbx();
+console.log(bx.print());
