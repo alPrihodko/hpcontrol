@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
+var config = require('./config');
 
 var app = express();
 
@@ -48,5 +49,5 @@ module.exports = app;
 var Dbx = require('./libs/dropbox');
 
 //import Dbx from 'libs/dropbox.js';
-var bx = new Dbx();
+var bx = new Dbx(config.dropbox.secret);
 console.log(bx.print());
